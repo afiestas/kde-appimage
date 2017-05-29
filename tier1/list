@@ -1,0 +1,27 @@
+extra-cmake-modules
+attica
+bluez-qt
+breeze-icons
+kapidox
+karchive
+kcodecs
+kconfig
+kcoreaddons
+kdbusaddons
+kdnssd
+kguiaddons
+ki18n
+kidletime
+kitemmodels
+kitemviews
+kplotting
+syntax-highlighting
+kwayland
+kwidgetsaddons
+kwindowsystem
+modemmanager-qt #Failed
+networkmanager-qt #Failed
+prison
+solid
+sonnet
+threadweaver
