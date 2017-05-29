@@ -42,4 +42,10 @@ RUN git clone https://github.com/probonopd/linuxdeployqt  && \
     qmake-qt5 && make -j5 && \
     cp linuxdeployqt/linuxdeployqt /usr/local/bin/ && \
     cd ../; rm -rf linuxdeployqt*
+
+RUN echo "CMAKE_PREFIX_PATH=/usr/local/Qt-$QTVERSION/:/frameworks/share/:/frameworks/lib64/cmake" >> /env.sh
+RUN echo "CMAKE_PREFIX_PATH=/usr/local/Qt-$QTVERSION/:/frameworks/share/:/frameworks/lib64/cmake" >> ~/.bashrc
+
+RUN ln -s `which qmake-qt5` /usr/local/bin/qmake
+
 CMD /bin/bash
