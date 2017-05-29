@@ -27,4 +27,19 @@ RUN ln -sf /usr/local/Qt-$QTV/bin/qmake /usr/bin/qmake-qt5 && \
     $QTDIR/bin/qmake && make -j8 || make -j8 && make -j8 install && \
     rm -Rf /qtwk
 
+#Appimage already built appimage ^.^
+RUN wget "https://github.com/probonopd/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage" && \
+    chmod a+x appimagetool-x86_64.AppImage && mv appimagetool-x86_64.AppImage /usr/bin/appimagetool
+
+#linuxdeployqt and patchelf
+RUN wget https://nixos.org/releases/patchelf/patchelf-0.9/patchelf-0.9.tar.bz2 && \
+    tar xf patchelf-0.9.tar.bz2 && \
+    cd patchelf-0.9/ && ./configure  && make && sudo make install && \
+    rm -rf patchelf*
+
+RUN git clone https://github.com/probonopd/linuxdeployqt  && \
+    cd linuxdeployqt && \
+    qmake-qt5 && make -j5 && \
+    cp linuxdeployqt/linuxdeployqt /usr/local/bin/ && \
+    cd ../; rm -rf linuxdeployqt*
 CMD /bin/bash
