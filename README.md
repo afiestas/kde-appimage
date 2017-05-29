@@ -27,3 +27,4 @@ not available in any of the images
  - Plasma, depends on KActivities
  - libnetworkmanager-qt, depends on newert NM which depends on newer autotools
  - libmodemmanager-qt, depends on newert mm which depends on newer autotools
+ - wayland
